@@ -1,111 +1,174 @@
+# Nidhi Rakshak - Asset & Inheritance Management Platform
 
-# Nidhi Rakshak - Secure Today, Safeguard Tomorrow
+**Nidhi Rakshak** (Treasure Guardian) is a secure web application designed to help citizens safeguard and manage their assets and inheritance planning. It provides role-based access for account holders and nominees with comprehensive asset management, document storage, and activity tracking features.
 
-**Nidhi Rakshak** is a personal finance management application designed to help users monitor and manage their available funds across different sources such as bank accounts and cash wallets. The application provides a simple and structured interface for tracking balances and maintaining financial awareness.
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![Supabase](https://img.shields.io/badge/Database-Supabase-black?style=for-the-badge&logo=supabase)](https://supabase.com)
 
-The name **“Nidhi Rakshak”** is derived from Sanskrit/Hindi, where *Nidhi* means wealth or treasure and *Rakshak* means protector. The application aims to serve as a **digital safeguard for personal finances** by helping users maintain visibility and control over their money.
+## Features
 
----
+### Core Features
+- **Secure Authentication** - Email/password authentication with Supabase Auth
+- **Role-Based Access** - Separate portals for Account Holders and Nominees
+- **Asset Management** - View and manage financial assets
+- **Document Storage** - Upload and organize important legal/financial documents
+- **Inheritance Rules** - Set up and manage inheritance protection rules
+- **Activity Tracking** - Comprehensive audit logs for security and compliance
+- **Safety Status** - Emergency status reporting ("I'm Safe" / "Need Help")
+- **Session Management** - Secure token-based authentication with localStorage persistence
 
-## Overview
+## Tech Stack
 
-Managing day-to-day finances can often become complicated when balances are spread across multiple sources. Nidhi Rakshak simplifies this process by allowing users to track their funds in one place. The application focuses on minimalism and clarity, enabling users to quickly log and review their financial status without unnecessary complexity.
+- **Frontend:** Next.js 15 (React 19.2)
+- **Backend:** Next.js API Routes
+- **Database:** Supabase (PostgreSQL)
+- **Authentication:** Supabase Auth
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui
+- **Package Manager:** npm
 
-This project was developed as a learning exercise in building structured applications while also addressing a practical problem of personal financial awareness.
+## Quick Start
 
----
+### Prerequisites
+- Node.js 18+
+- Supabase account with active project
 
-## Key Features
+### Installation
 
-* **Balance Tracking**
-  Monitor funds stored in online accounts and physical wallets.
+1. **Clone the repository**
+```bash
+git clone https://github.com/tanishabartakke31/Nidhi-Rakshak.git
+cd Nidhi-Rakshak
+```
 
-* **Unified Financial View**
-  View the total amount of available funds across all tracked sources.
+2. **Install dependencies**
+```bash
+npm install --legacy-peer-deps
+```
 
-* **Manual Transaction Logging**
-  Record income and expenses to maintain an accurate financial record.
+3. **Set up environment variables**
 
-* **Minimal and Intuitive Interface**
-  Designed to provide a clear user experience without clutter.
+Create a `.env.local` file in the project root:
 
-* **Local Data Storage**
-  Financial information can be stored locally for quick access.
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
----
+Get these values from [Supabase Dashboard](https://app.supabase.com) → Settings → API
 
-## Technology Stack
+4. **Start development server**
+```bash
+npm run dev
+```
 
-The application is built using modern web development technologies:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**Frontend**
+## Usage
 
-* React / React Native
-* JavaScript or TypeScript
-* CSS / Tailwind CSS
+### Registration
+1. Navigate to `/register`
+2. Enter email, password, first name, and last name
+3. Click "Create Account"
 
-**Backend (optional depending on implementation)**
+### Login
+1. Go to `/` (home page)
+2. Enter your registered email and password
+3. Click "Login"
 
-* Node.js
-* Express.js
-
-**Data Storage**
-
-* Local Storage or database integration
-
----
+### Dashboard
+- **Account Holder:** Manage assets, documents, and inheritance rules
+- **Nominee:** Access account information and report safety status
 
 ## Project Structure
 
 ```
-nidhi-rakshak/
-│
-├── src/
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Application screens or views
-│   ├── utils/           # Utility functions
-│   └── styles/          # Styling files
-│
-├── public/              # Static assets
-│
-├── package.json
-├── README.md
-└── .gitignore
+├── app/
+│   ├── api/auth/                    # Authentication APIs
+│   ├── page.tsx                     # Login page
+│   ├── register/                    # Registration page
+│   ├── select-user-type/            # User role selection
+│   ├── account-holder-dashboard/    # Account holder portal
+│   └── nominee-dashboard/           # Nominee portal
+├── components/                       # Reusable components
+├── lib/supabase/                    # Supabase configuration
+├── public/                          # Static assets
+└── .env.local                       # Environment variables
 ```
 
----
+## Available Scripts
 
-## Future Enhancements
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm start        # Start production server
+npm run lint     # Run ESLint
+```
 
-Potential improvements for the application include:
+## Troubleshooting
 
-* Expense analytics and visual dashboards
-* Monthly financial reports
-* Budget limits and alerts
-* Secure authentication system
-* Cloud synchronization across devices
-* Mobile-optimized user interface
+### "Invalid API key" Error
+- Verify Supabase credentials in `.env.local`
+- Ensure your Supabase instance is active (not paused)
+- Confirm credentials match your Supabase project
 
----
+### "Email not confirmed" Error
+- Go to Supabase Dashboard → Authentication → Providers → Email
+- Toggle "Confirm email" OFF for testing
+- For production, keep email confirmation enabled
+
+### "Email rate limit exceeded"
+- Wait 5-10 minutes before trying again
+- Try registering with a different email address
+
+### Port 3000 Already in Use
+- The app will automatically use the next available port
+- Check terminal output for the actual port being used
+
+## Deployment
+
+### Deploy to Vercel
+
+1. Connect your GitHub repository to Vercel
+2. Add environment variables in Vercel project settings:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `NEXT_PUBLIC_SITE_URL`
+3. Push to main branch - Vercel will auto-deploy
+
+## Security
+
+- Passwords are securely hashed by Supabase Auth
+- Row Level Security (RLS) policies protect sensitive data
+- Activity logs track all user actions
+- Session tokens with automatic expiration
+- HTTPS enforced in production
 
 ## Contributing
 
-Contributions that improve functionality, usability, or documentation are welcome.
+1. Create a feature branch: `git checkout -b feature/your-feature`
+2. Commit changes: `git commit -m 'Add feature'`
+3. Push branch: `git push origin feature/your-feature`
+4. Open a Pull Request
 
-1. Fork the repository
-2. Create a new branch
-3. Commit your changes
-4. Submit a pull request
+## Support
 
----
+For issues or questions:
+- Check [Supabase Docs](https://supabase.com/docs)
+- Review [Next.js Docs](https://nextjs.org/docs)
+- Open an issue on GitHub
 
 ## License
 
-This project is licensed under the **MIT License**.
+MIT License - see LICENSE file for details
 
----
+## Acknowledgments
 
-## Author
-
-**Tanisha Bartakke** , **Somisha Adak** , **Sancheeta Chavan** 
-Information Technology, SNDT Women's University
+- Built with [Next.js](https://nextjs.org/)
+- Database by [Supabase](https://supabase.com/)
+- UI Components from [shadcn/ui](https://ui.shadcn.com/)
+- Styling with [Tailwind CSS](https://tailwindcss.com/)
