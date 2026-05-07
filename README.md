@@ -25,8 +25,6 @@
 - **Database:** Supabase (PostgreSQL)
 - **Authentication:** Supabase Auth
 - **Styling:** Tailwind CSS
-- **UI Components:** shadcn/ui
-- **Package Manager:** npm
 
 ## Quick Start
 
