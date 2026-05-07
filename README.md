@@ -34,51 +34,6 @@
 - Node.js 18+
 - Supabase account with active project
 
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/tanishabartakke31/Nidhi-Rakshak.git
-cd Nidhi-Rakshak
-```
-
-2. **Install dependencies**
-```bash
-npm install --legacy-peer-deps
-```
-
-3. **Set up environment variables**
-
-Create a `.env.local` file in the project root:
-
-```bash
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-```
-
-Get these values from [Supabase Dashboard](https://app.supabase.com) → Settings → API
-
-4. **Start development server**
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Usage
-
-### Registration
-1. Navigate to `/register`
-2. Enter email, password, first name, and last name
-3. Click "Create Account"
-
-### Login
-1. Go to `/` (home page)
-2. Enter your registered email and password
-3. Click "Login"
-
 ### Dashboard
 - **Account Holder:** Manage assets, documents, and inheritance rules
 - **Nominee:** Access account information and report safety status
@@ -99,14 +54,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 └── .env.local                       # Environment variables
 ```
 
-## Available Scripts
-
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm start        # Start production server
-npm run lint     # Run ESLint
-```
 
 ## Troubleshooting
 
@@ -127,40 +74,6 @@ npm run lint     # Run ESLint
 ### Port 3000 Already in Use
 - The app will automatically use the next available port
 - Check terminal output for the actual port being used
-
-## Deployment
-
-### Deploy to Vercel
-
-1. Connect your GitHub repository to Vercel
-2. Add environment variables in Vercel project settings:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - `NEXT_PUBLIC_SITE_URL`
-3. Push to main branch - Vercel will auto-deploy
-
-## Security
-
-- Passwords are securely hashed by Supabase Auth
-- Row Level Security (RLS) policies protect sensitive data
-- Activity logs track all user actions
-- Session tokens with automatic expiration
-- HTTPS enforced in production
-
-## Contributing
-
-1. Create a feature branch: `git checkout -b feature/your-feature`
-2. Commit changes: `git commit -m 'Add feature'`
-3. Push branch: `git push origin feature/your-feature`
-4. Open a Pull Request
-
-## Support
-
-For issues or questions:
-- Check [Supabase Docs](https://supabase.com/docs)
-- Review [Next.js Docs](https://nextjs.org/docs)
-- Open an issue on GitHub
 
 ## License
 
